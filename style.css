@@ -1,0 +1,602 @@
+/* =========================================
+   1. CSS VARIABLES
+========================================= */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --background: #f5f7fb;
+    --surface: #ffffff;
+    --text: #172033;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+
+    --header: #172554;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+
+    --radius: 12px;
+
+    --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    --max-width: 1100px;
+}
+
+
+/* =========================================
+   2. DARK THEME
+========================================= */
+
+[data-theme="dark"] {
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text: #f8fafc;
+    --text-light: #cbd5e1;
+    --border: #334155;
+
+    --header: #020617;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   3. RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+
+    background: var(--background);
+    color: var(--text);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================
+   4. CONTAINER
+========================================= */
+
+.container {
+    width: min(90%, var(--max-width));
+    margin-inline: auto;
+}
+
+
+/* =========================================
+   5. HEADER
+========================================= */
+
+header {
+    background: var(--header);
+    color: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+
+/* =========================================
+   6. NAVIGATION - FLEXBOX
+========================================= */
+
+nav ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+
+    padding: 0.5rem 0.75rem;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+nav a[aria-current="page"] {
+    background: var(--primary);
+}
+
+
+/* =========================================
+   7. THEME BUTTON
+========================================= */
+
+.theme-button {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    background: transparent;
+    color: white;
+
+    padding: 0.55rem 0.8rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+
+    transition:
+        background-color 0.2s ease;
+}
+
+.theme-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   8. MAIN SECTIONS
+========================================= */
+
+main {
+    min-height: 70vh;
+}
+
+section {
+    padding-block: var(--spacing-lg);
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+
+/* =========================================
+   9. HERO - CSS GRID
+========================================= */
+
+.hero {
+    min-height: 70vh;
+
+    display: grid;
+
+    place-items: center;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-label {
+    color: var(--primary);
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+.hero h2 {
+    margin: 0.5rem 0 1rem;
+
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+
+    line-height: 1.05;
+}
+
+.hero p {
+    color: var(--text-light);
+
+    font-size: 1.1rem;
+
+    max-width: 650px;
+}
+
+
+/* =========================================
+   10. BUTTONS
+========================================= */
+
+.button {
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    padding: 0.85rem 1.4rem;
+
+    background: var(--primary);
+    color: white;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.button:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   11. SKILLS - FLEXBOX
+========================================= */
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.skills li {
+    padding: 0.8rem 1.2rem;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow: var(--shadow);
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   12. PROJECTS - CSS GRID
+========================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 1.5rem;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+.card h3 {
+    margin-top: 0;
+
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--text-light);
+}
+
+
+/* =========================================
+   13. ABOUT PAGE
+========================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+}
+
+.about-box {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 2rem;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   14. CONTACT FORM
+========================================= */
+
+.contact-layout {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+}
+
+form {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 2rem;
+
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 0.4rem;
+
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 0.85rem;
+
+    font: inherit;
+
+    color: var(--text);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    border: 0;
+
+    padding: 0.85rem 1.4rem;
+
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   15. ACCESSIBILITY FOCUS
+========================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #f59e0b;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   16. FOOTER
+========================================= */
+
+footer {
+    background: var(--header);
+
+    color: white;
+
+    padding-block: 2rem;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   17. TABLET - 600px+
+========================================= */
+
+@media (min-width: 600px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .contact-layout {
+        grid-template-columns:
+            1fr 1.5fr;
+    }
+
+}
+
+
+/* =========================================
+   18. DESKTOP - 900px+
+========================================= */
+
+@media (min-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns:
+            1.2fr 0.8fr;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    section {
+        padding-block: var(--spacing-xl);
+    }
+
+}
+
+
+/* =========================================
+   19. SMALL MOBILE DEVICES
+========================================= */
+
+@media (max-width: 599px) {
+
+    .header-container {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-block: 1rem;
+    }
+
+    nav ul {
+        gap: 0.3rem;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    .theme-button {
+        margin-top: 0.5rem;
+    }
+
+}
+
+
+/* =========================================
+   20. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+    }
+
+}
